@@ -8,7 +8,7 @@ This project is being developed for the web programming discipline using REST pr
 
 - In the project directory, you can run:
 
- ***`npm install`***
+ **`npm install`**
 
 To install the appropriate libraries already contained in this repository.
 
