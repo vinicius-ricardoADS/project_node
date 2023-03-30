@@ -1,15 +1,15 @@
 const routes = require("express").Router();
 
-const paciente = require("../app/controllers/pacienteController.js");
+import { findAll, findPaciente, addPaciente, updatePaciente, deletePaciente } from "../app/controllers/pacienteController.js";
 
-routes.get("/pacientes/lista", paciente.findAll);
+routes.get("/pacientes/lista", findAll);
 
-routes.get("/pacientes/lista/:id", paciente.findPaciente);
+routes.get("/pacientes/lista/:id", findPaciente);
 
-routes.post("/pacientes/cadastro", paciente.addPaciente);
+routes.post("/pacientes/cadastro", addPaciente);
 
-routes.put("/pacientes/cadastro/:id", paciente.updatePaciente);
+routes.put("/pacientes/cadastro/:id", updatePaciente);
 
-routes.delete("/pacientes/remover/:id", paciente.deletePaciente);
+routes.delete("/pacientes/remover/:id", deletePaciente);
 
-module.exports = routes;
+export default routes;

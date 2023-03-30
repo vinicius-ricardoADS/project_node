@@ -1,6 +1,6 @@
-const database = require("../../database/db.js");
+import database from "../../database/db.js"
 
-const Sequelize = require("sequelize");
+import Sequelize from "sequelize"
 
 const Paciente = database.define("pacientes", {
     id: {
@@ -32,4 +32,4 @@ const Paciente = database.define("pacientes", {
     }
 });
 
-module.exports = Paciente;
+export default Paciente;

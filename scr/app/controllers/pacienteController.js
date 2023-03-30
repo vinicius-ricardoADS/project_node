@@ -1,4 +1,4 @@
-const Paciente = require("../modules/paciente.js");
+import Paciente from "../modules/paciente.js"
 
 function findAll (req, res) {
     Paciente.findAll().then((result) => res.json(result));
@@ -46,4 +46,4 @@ async function deletePaciente (req, res) {
     Paciente.findAll().then((result) => res.json(result));
 }
 
-module.exports = {findAll, findPaciente, addPaciente, updatePaciente, deletePaciente};
+export {findAll, findPaciente, addPaciente, updatePaciente, deletePaciente};

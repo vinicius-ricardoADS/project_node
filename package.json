@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node scr/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +15,12 @@
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.2.0",
     "sequelize": "^6.30.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.3",
+    "@babel/node": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "nodemon": "^2.0.22"
   }
 }
