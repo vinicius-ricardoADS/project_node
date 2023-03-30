@@ -1,4 +1,4 @@
-import Paciente from "../modules/paciente.js"
+import Paciente from "../modules/Paciente.js"
 
 function findAll (req, res) {
     Paciente.findAll().then((result) => res.json(result));
