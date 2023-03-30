@@ -6,7 +6,7 @@ This project is being developed for the web programming discipline using REST pr
 
 ## Getting Started
 
-- In the project directory, you can run:
+In the project directory, you can run:
 
  **`npm install`**
 
