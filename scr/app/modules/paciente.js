@@ -2,6 +2,8 @@ import database from "../../database/db.js"
 
 import Sequelize from "sequelize"
 
+import Medico from "../modules/Medico.js";
+
 const Paciente = database.define("pacientes", {
     id: {
         type: Sequelize.INTEGER,
@@ -30,6 +32,15 @@ const Paciente = database.define("pacientes", {
         allowNull: false,
         primaryKey: false
     }
+});
+
+Paciente.belongsTo(Medico, {
+    constraint: true,
+    foreignKey: "idMedico"
+});
+
+Medico.hasMany(Paciente, {
+    foreignKey: "idMedico"
 });
 
 export default Paciente;
