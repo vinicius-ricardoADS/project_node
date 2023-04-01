@@ -37,7 +37,7 @@ If you are going to install each library being used in this project, you must ru
         DB_HOST=your_host
     ```
 4. Now save the file and you will have access to the database.
-5. To test the database connection you can run the command: npm run testing
+5. To test the database connection you can run the command: npm run testing.
 If it works, the following message should appear: 
 `Executing (default): SELECT 1+1 AS result`
 `Conectado ao banco: my_database`
