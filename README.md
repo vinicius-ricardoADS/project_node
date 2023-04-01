@@ -24,3 +24,20 @@ If you are going to install each library being used in this project, you must ru
 - `npm install --save-dev @babel/preset-env:` is a special module that will compile our code for a previous version of ECMASCRIPT in case the resource we are using is not supported by the browsers on the market;
 - `npm install --save-dev nodemon:` is a command-line tool designed to automatically monitor changes to project files and restart your Node. js whenever there is a change;
 - `npm install dotenv --save`: dotenv is a zero dependency module that loads environment variables from an .env file into process.env, in this case, used to place database access variables, such as password, name, host;
+
+## Bank configuration
+
+1. For the sequelize and mysql2 libraries to work correctly, before performing the database configuration it is necessary to already have the database that will be used created on the mysql server.
+2. Then create an .env file which will contain the environment variables that will store information about the database to be used.
+3. Inside the file it is necessary to contain 4 variables one for the name of the database, mysql server user, the password for access and the server host.
+    ```
+        DB_NAME=my_database
+        DB_USER=user
+        DB_PASSWORD=password
+        DB_HOST=your_host
+    ```
+4. Now save the file and you will have access to the database.
+5. To test the database connection you can run the command: npm run testing
+If it works, the following message should appear: 
+`Executing (default): SELECT 1+1 AS result`
+`Conectado ao banco: my_database`
