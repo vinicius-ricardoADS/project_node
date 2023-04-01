@@ -1,6 +1,10 @@
 import express from "express";
 
-import routes from "./routes/routesPaciente.js";
+import routesPaciente from "./routes/routesPaciente.js";
+
+import routesClinica from "./routes/routesClinica.js";
+
+import routesMedico from "./routes/routesMedicos.js";
 
 import db from "./database/db.js";
 
@@ -16,18 +20,12 @@ async function start () {
     app.use(express.urlencoded({extended: true}));
     app.use(express.json());
 
-    app.use("/clinica", (req, res, next) => {
-        console.log(`Banco de dados conectado: ${process.env.DB_NAME}`);
-        next();
-    });
-
-    app.get("/clinica", (req, res, next) => {
-        res.status(200).send("Bem vindo a clínica");
-        next();
-    });
+    app.use("/clinica", routesClinica);
 
     try {
-        app.use(routes);
+        app.use(routesPaciente);
+        app.use(routesClinica);
+        app.use(routesMedico);
         await app.listen({ port: 8888 });
     } catch (error) {
         console.log(error);

@@ -4,18 +4,18 @@ import { findAll, findPaciente, addPaciente, updatePaciente, deletePaciente } fr
 
 const routes = express.Router();
 
-routes.get("/clinica/pacientes", (req, res, next) => {
+routes.get("/", (req, res, next) => {
     res.status(200).send("Bem vindo aos Pacientes");
 });
 
-routes.get("/clinica/pacientes/lista", findAll);
+routes.get("/lista", findAll);
 
-routes.get("/clinica/pacientes/lista/:id", findPaciente);
+routes.get("/lista/:id", findPaciente);
 
-routes.post("/clinica/pacientes/cadastro", addPaciente);
+routes.post("/cadastro", addPaciente);
 
-routes.put("/clinica/pacientes/cadastro/:id", updatePaciente);
+routes.put("/cadastro/:id", updatePaciente);
 
-routes.delete("/clinica/pacientes/remover/:id", deletePaciente);
+routes.delete("/remover/:id", deletePaciente);
 
 export default routes;

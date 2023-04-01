@@ -5,8 +5,7 @@ function findAll (req, res) {
 }
 
 function findPaciente (req, res) {
-    Paciente.findByPk(req.params.id).then((result) => res.json(result))
-    console.log(req.params);
+    Paciente.findByPk(req.params.id).then((result) => res.json(result));
 }
 
 function addPaciente (req, res) {
