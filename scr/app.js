@@ -1,10 +1,6 @@
 import express from "express";
 
-import routesPaciente from "./routes/routesPaciente.js";
-
 import routesClinica from "./routes/routesClinica.js";
-
-import routesMedico from "./routes/routesMedicos.js";
 
 import db from "./database/db.js";
 
@@ -23,9 +19,7 @@ async function start () {
     app.use("/clinica", routesClinica);
 
     try {
-        app.use(routesPaciente);
         app.use(routesClinica);
-        app.use(routesMedico);
         await app.listen({ port: 8888 });
     } catch (error) {
         console.log(error);
