@@ -23,7 +23,8 @@ If you are going to install each library being used in this project, you must ru
 - `npm install --save-dev @babel/node:` is a CLI that works exactly the same as the Node.js CLI, with the added benefit of compiling with Babel's presets and plugins before running it;
 - `npm install --save-dev @babel/preset-env:` is a special module that will compile our code for a previous version of ECMASCRIPT in case the resource we are using is not supported by the browsers on the market;
 - `npm install --save-dev nodemon:` is a command-line tool designed to automatically monitor changes to project files and restart your Node. js whenever there is a change;
-- `npm install dotenv --save`: dotenv is a zero dependency module that loads environment variables from an .env file into process.env, in this case, used to place database access variables, such as password, name, host;
+- `npm install dotenv --save:` dotenv is a zero dependency module that loads environment variables from an .env file into process.env, in this case, used to place database access variables, such as password, name, host;
+- `npm install jsonwebtoken:` is a token format used to securely transmit information between parties. It consists of a header, a set of claims, and a digital signature, allowing the information contained in the token to be verified and trusted. JWT is often used for authentication and authorization in web applications and RESTful APIs.
 
 ## Bank configuration
 
