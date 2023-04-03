@@ -2,7 +2,8 @@ import db from "../database/db.js";
 
 import dotenv from "dotenv";
 
-async function execDb () {
+
+(async () => {
     dotenv.config();
 
     try {
@@ -11,6 +12,4 @@ async function execDb () {
     } catch (error) {
         console.log(error);
     }
-}
-
-execDb();
+})();
