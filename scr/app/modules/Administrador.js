@@ -9,6 +9,11 @@ const Admin = db.define("administradores", {
         allowNull: false,
         primaryKey: true
     },
+    nome: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        primaryKey: false
+    },
     usuario: {
         type: Sequelize.STRING,
         allowNull: false,
