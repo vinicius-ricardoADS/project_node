@@ -6,16 +6,65 @@ import routesMedico from "./routesMedicos.js";
 
 import routesAdmin from "./routesAdmin.js";
 
+import path from "path";
+
+import { validarDadosAdmin } from "../app/middlewares/validarDados.js";
+
+import { findAdmin, addAdmin } from "../app/controllers/AdminController.js";
+
+import jwt from "jsonwebtoken";
+
+import fs from "fs";
+
 const router = express.Router();
+
+var token;
 
 router.get("/", (req, res, next) => {
     res.status(200).send("Bem vindo a clinica");
 })
 
-router.use("/login", routesAdmin);
+router.post("/", async (req, res, next) => {
+    if (validarDadosAdmin(req)) {
+        const admin = await findAdmin(req, res);
+        if (admin != null) {
+            const privateKey = fs.readFileSync(path.resolve(__dirname, "../app/keys_jwt/private.key"), "utf-8");
+            
+            token = jwt.sign({username: admin.name, id: admin.id}, privateKey, {
+                expiresIn: 300,
+                algorithm: "RS256"
+            })
 
-router.use("/pacientes", routesPaciente);
+            res.status(200).json({
+                auth: true,
+                token: token
+            });
+        } else {
+            res.redirect(303, "/admin");
+        }
+    } else {
+        res.status(400).send("Valores de campos nulos ou vazios");
+    }
+})
 
-router.use("/medicos", routesMedico);
+function verificaToken(req, res, next) {
+
+    if (!token) 
+        return res.status(401).json({aMIIBCgKCAQEA3A3OGIzs7SOuCfBdWVpn2ruth: false,mensagem: "Token não informado"});
+    const publicKey = fs.readFileSync(path.resolve(__dirname, "../app/keys_jwt/public.key"), "utf-8");
+
+    jwt.verify(token, publicKey, {algorithms: ["RS256"]}, (err, decoded) => {
+        if (err)
+            res.status(401).json({auth: false, mensagem: "Token inválido"})
+        next();
+    })
+        
+}
+
+router.post("/admin", routesAdmin);
+
+router.use("/pacientes", verificaToken, routesPaciente);
+
+router.use("/medicos", verificaToken, routesMedico);
 
 export default router;

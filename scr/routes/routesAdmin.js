@@ -1,6 +1,6 @@
 import express from "express";
 
-import { findAdmin, addAdmin } from "../app/controllers/AdminController";
+import { addAdmin } from "../app/controllers/AdminController";
 
 const router = express.Router();
 
@@ -9,7 +9,5 @@ router.get("/", (req, res, next) => {
 })
 
 router.post("/cadastro", addAdmin);
-
-router.get("/lista/:id", findAdmin);
 
 export default router;
