@@ -40,7 +40,7 @@ router.post("/", async (req, res, next) => {
                 token: token
             });
         } else {
-            res.redirect(303, "/admin");
+            res.redirect(303, "/admin"); // resolver bug de redirecionamento
         }
     } else {
         res.status(400).send("Valores de campos nulos ou vazios");
