@@ -45,5 +45,5 @@ If it works, the following message should appear:
 
 ## Application
 
-- In the terminal you must run:
- **`npm run dev´**
+- For the application to run, you must use the command:
+ **`npm run dev`**
