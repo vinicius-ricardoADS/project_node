@@ -4,8 +4,12 @@ function findAll (req, res) {
     Paciente.findAll().then((result) => res.json(result));
 }
 
-function findPaciente (req, res) {
-    Paciente.findByPk(req.params.id).then((result) => res.json(result));
+async function findPaciente (req, res) {
+    return await Paciente.findOne({
+        where: {
+            nome: req.body.nome
+        }
+    });
 }
 
 function addPaciente (req, res) {

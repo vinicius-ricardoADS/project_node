@@ -34,13 +34,4 @@ const Paciente = database.define("pacientes", {
     }
 });
 
-Paciente.belongsTo(Medico, {
-    constraint: true,
-    foreignKey: "idMedico"
-});
-
-Medico.hasMany(Paciente, {
-    foreignKey: "idMedico"
-});
-
 export default Paciente;

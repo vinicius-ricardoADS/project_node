@@ -10,7 +10,10 @@ routes.get("/", (req, res, next) => {
 
 routes.get("/lista", findAll);
 
-routes.get("/lista/:id", findPaciente);
+routes.get("/lista/:id", (req, res, next) => {
+    const paciente = findPaciente(req, res);
+    res.status(200).json(paciente);
+});
 
 routes.post("/cadastro", addPaciente);
 

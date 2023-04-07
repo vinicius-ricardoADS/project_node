@@ -6,6 +6,8 @@ import routesMedico from "./routesMedicos.js";
 
 import routesAdmin from "./routesAdmin.js";
 
+import routesConsulta from "./routesConsulta.js";
+
 import path from "path";
 
 import { validarDadosAdmin } from "../app/middlewares/validarDados.js";
@@ -40,7 +42,7 @@ router.post("/", async (req, res, next) => {
                 token: token
             });
         } else {
-            res.redirect(303, "/admin"); // resolver bug de redirecionamento
+            res.redirect(303, "/cadastroAdmin");
         }
     } else {
         res.status(400).send("Valores de campos nulos ou vazios");
@@ -61,10 +63,16 @@ function verificaToken(req, res, next) {
         
 }
 
-router.post("/admin", routesAdmin);
+router.get("/cadastroAdmin", (req, res, next) => {
+    res.status(200).send("Bem vindo ao cadastro de Admin");
+});
+
+router.post("/cadastroAdmin", addAdmin);
 
 router.use("/pacientes", verificaToken, routesPaciente);
 
 router.use("/medicos", verificaToken, routesMedico);
+
+router.use("/consultas", verificaToken, routesConsulta);
 
 export default router;
