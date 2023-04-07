@@ -42,3 +42,8 @@ If you are going to install each library being used in this project, you must ru
 If it works, the following message should appear: 
 `Executing (default): SELECT 1+1 AS result`
 `Conectado ao banco: my_database`
+
+## Application
+
+- In the terminal you must run:
+ **`npm run dev´**
