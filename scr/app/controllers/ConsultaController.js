@@ -4,6 +4,8 @@ import { findMedicoByPk } from "../controllers/MedicoController.js";
 
 import { findPacienteByPk } from "../controllers/PacienteController.js";
 
+import { validarDadosConsulta, validarDataConsulta } from "../middlewares/validarDados";
+
 function findAll (req, res) {
     Consulta.findAll().then((result) => res.json(result));
 }
@@ -18,27 +20,38 @@ async function findConsulta (req, res) {
 
 async function addConsulta (req, res) {
 
-    const medico = await findMedicoByPk(req, res);
-    const paciente = await findPacienteByPk(req, res);
+    if (validarDadosConsulta(req)) {
 
-    if (medico != null) {
-        if (paciente != null) {
-            return await Consulta.create({
-                idMedico: req.body.idMedico,
-                idPaciente: req.body.idPaciente,
-                data: req.body.data,
-                hora: req.body.hora
-            });
+        if (validarDataConsulta(req)) {
+            const medico = await findMedicoByPk(req, res);
+            const paciente = await findPacienteByPk(req, res);
+        
+            if (medico != null) {
+                if (paciente != null) {
+                    return await Consulta.create({
+                        idMedico: req.body.idMedico,
+                        idPaciente: req.body.idPaciente,
+                        data: req.body.data,
+                        hora: req.body.hora
+                    });
+                } else {
+                    res.json({
+                        mensagem: "Paciente não existe"
+                    })
+                }
+            } else {
+                res.json({
+                    mensagem: "Medico não existe"
+                })
+            }
         } else {
-            res.json({
-                mensagem: "Paciente não existe"
-            })
+            res.status(400).send("Data ou hora selecionados inválidos");
         }
+        
     } else {
-        res.json({
-            mensagem: "Medico não existe"
-        })
+        res.status(400).send("Valores de campos nulos ou vazios");
     }
+    
 }
 
 async function updateConsulta (req, res) {

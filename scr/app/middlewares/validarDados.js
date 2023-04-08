@@ -21,4 +21,22 @@ function validarDadosMedico (req) {
     return false;
 }
 
-export { validarDadosAdmin, validarDadosPaciente, validarDadosMedico };
+function validarDadosConsulta (req) {
+    if (req.body.data !== null && req.body.data !== "" && req.body.hora !== null && req.body.hora !== "" 
+    && req.body.idPaciente !== null && req.body.idPaciente !== "" && req.body.idMedico !== null && req.body.idMedico !== "")
+        return true;
+    return false;
+}
+
+function validarDataConsulta (req) {
+    var dataAtual = new Date();
+    var data = req.body.data + " " + req.body.hora;
+    var dataConsulta = new Date(data);
+
+    if (dataConsulta.getTime() >= dataAtual.getTime() && dataConsulta.getHours() >= dataAtual.getHours() 
+    && dataConsulta.getMinutes() >= dataAtual.getMinutes())
+        return true;
+    return false;
+}
+
+export { validarDadosAdmin, validarDadosPaciente, validarDadosMedico, validarDadosConsulta, validarDataConsulta };
