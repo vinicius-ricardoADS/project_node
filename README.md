@@ -3,6 +3,7 @@
 ## Overview
 
 This project is being developed for the web programming discipline using REST programming concepts, Javascript language, back-end development and front-end with React.
+
 The project of this medical clinic consists of 3 basic entities: Patients, Doctors and Appointments, where the heart of the application is about the functionality of scheduling an appointment of a respective patient with a respective doctor. In addition to this main action, it is possible to carry out a complete CRUD of the 3 entities Patients, Doctors and Consultations, there is also the Administrators entity that represents the user who will have access to the functionalities available in the system, performing the login to access the system and a logout if need to exit the system itself, if there is still no administrator registered in the system, you must register one to be able to use the system.
 
 ## Getting Started
