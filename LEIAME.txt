@@ -6,7 +6,9 @@ precisar sair do próprio sistema, caso ainda não haja administrador cadastrado
 o sistema. Algumas regras de negócios: Não é possível deletar um paciente se ele atualmente tiver uma consulta agendada, o mesmo para o médico,
 não é possível realizar a exclusão do mesmo. Não é possível cadastrar uma consulta se o paciente ou o médico informado não constarem no 
 sistema, também não é possível cadastrar uma consulta se a data ou a hora informada sejam inválidas (Exemplo: Passar uma data que já passou, ou
-uma hora que já passou)
+uma hora que já passou). Os relacionamentos presentes são apenas um, que no caso, é um relacionamento de Pacientes com Consultas onde, uma
+consulta pertence a apenas um paciente e um paciente pode ter várias consultas, o mesmo com Médicos e Consultas => Uma consulta é realizada
+por apenas um Médico, mas um médico pode realizar várias consultas, ambas são 1-N.
 
 Para instalar as devidas bibliotecas sendo utilizadas nesta aplicação basta rodar `npm install` que todas as dependências serão instaladas.
 Para rodar a aplicação deve utilizar o comadno `npm run dev` que estará pronto pra utilização, é necessário antes também criar um banco
