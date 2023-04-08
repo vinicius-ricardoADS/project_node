@@ -2,6 +2,8 @@ import Medico from "../modules/Medico.js";
 
 import Consulta from "../modules/Consulta.js";
 
+import { validarDadosMedico } from "../middlewares/validarDados.js";
+
 function findAll (req, res) {
     Medico.findAll().then((result) => res.json(result));
 }
@@ -19,13 +21,19 @@ async function findMedicoByPk (req, res) {
 }
 
 function addMedico (req, res) {
-    Medico.create({
-        nome: req.body.nome,
-        crm: req.body.crm,
-        sexo: req.body.sexo,
-        datanasc: req.body.datanasc,
-        salario: req.body.salario
-    }).then((result) => res.json(result))
+
+    if (validarDadosMedico(req)) {
+        Medico.create({
+            nome: req.body.nome,
+            crm: req.body.crm,
+            sexo: req.body.sexo,
+            datanasc: req.body.datanasc,
+            salario: req.body.salario
+        }).then((result) => res.json(result))
+    } else {
+        res.status(200).send("Valores de campos nulos ou vazios");
+    }
+    
 }
 
 async function updateMedico (req, res) {

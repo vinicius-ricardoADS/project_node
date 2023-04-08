@@ -2,6 +2,8 @@ import Paciente from "../modules/Paciente.js"
 
 import Consulta from "../modules/Consulta.js";
 
+import { validarDadosPaciente } from "../middlewares/validarDados.js";
+
 function findAll (req, res) {
     Paciente.findAll().then((result) => res.json(result));
 }
@@ -19,12 +21,17 @@ async function findPacienteByPk (req, res) {
 }
 
 function addPaciente (req, res) {
-    Paciente.create({
-        nome: req.body.nome,
-        cpf: req.body.cpf,
-        sexo: req.body.sexo,
-        datanasc: req.body.datanasc
-    }).then((result) => res.json(result))
+
+    if (validarDadosPaciente(req)) {
+        Paciente.create({
+            nome: req.body.nome,
+            cpf: req.body.cpf,
+            sexo: req.body.sexo,
+            datanasc: req.body.datanasc
+        }).then((result) => res.json(result))
+    } else {
+        res.status(400).send("Valores de campos nulos ou vazios");
+    }
 }
 
 async function updatePaciente (req, res) {
