@@ -30,11 +30,11 @@ If you are going to install each library being used in this project, you must ru
 
 1. For the sequelize and mysql2 libraries to work correctly, before performing the database configuration it is necessary to already have the database that will be used created on the mysql server.
 2. Then create an .env file which will contain the environment variables that will store information about the database to be used.
-3. Inside the file it is necessary to contain 4 variables one for the name of the database, mysql server user, the password for access and the server host.
+3. Inside the file it is necessary to contain 4 variables one for the name of the database, mysql server user, the password for access and the server host. For example:
     ```
-        DB_NAME=my_database
-        DB_USER=user
-        DB_PASSWORD=password
+        DB_NAME=your_database
+        DB_USER=your_user
+        DB_PASSWORD=your_password
         DB_HOST=your_host
     ```
 4. Now save the file and you will have access to the database.
