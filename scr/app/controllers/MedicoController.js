@@ -12,6 +12,10 @@ async function findMedico (req, res) {
     });
 }
 
+async function findMedicoByPk (req, res) {
+    return await Medico.findByPk(req.body.idMedico);
+}
+
 function addMedico (req, res) {
     Medico.create({
         nome: req.body.nome,
@@ -51,4 +55,4 @@ async function deleteMedico (req, res) {
     Medico.findAll().then((result) => res.json(result));
 }
 
-export {findAll, findMedico, addMedico, updateMedico, deleteMedico};
+export {findAll, findMedico, findMedicoByPk, addMedico, updateMedico, deleteMedico};

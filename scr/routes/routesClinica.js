@@ -4,8 +4,6 @@ import routesPaciente from "./routesPaciente.js";
 
 import routesMedico from "./routesMedicos.js";
 
-import routesAdmin from "./routesAdmin.js";
-
 import routesConsulta from "./routesConsulta.js";
 
 import path from "path";

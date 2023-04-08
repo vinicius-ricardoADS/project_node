@@ -15,7 +15,10 @@ router.get("/lista/:id", (req, res, next) => {
     res.status(200).json(consulta);
 });
 
-router.post("/cadastro", addConsulta);
+router.post("/cadastro", async (req, res, next) => {
+    const consulta = await addConsulta(req, res);
+    res.status(200).json(consulta);
+});
 
 router.put("/cadastro/:id", updateConsulta);
 

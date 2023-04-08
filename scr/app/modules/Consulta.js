@@ -9,16 +9,6 @@ const Consulta = database.define("consultas", {
         allowNull: false,
         primaryKey: true
     },
-    idMedico: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey: false
-    },
-    idPaciente: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        primaryKey: false
-    },
     data: {
         type: Sequelize.DATE,
         allowNull: false,

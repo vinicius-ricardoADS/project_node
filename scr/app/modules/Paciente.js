@@ -2,7 +2,7 @@ import database from "../../database/db.js"
 
 import Sequelize from "sequelize"
 
-import Medico from "../modules/Medico.js";
+import Consulta from "./Consulta.js";
 
 const Paciente = database.define("pacientes", {
     id: {
@@ -32,6 +32,15 @@ const Paciente = database.define("pacientes", {
         allowNull: false,
         primaryKey: false
     }
+});
+
+Consulta.belongsTo(Paciente, {
+    constraint: true,
+    foreignKey: "idPaciente"
+});
+
+Paciente.hasMany(Consulta, {
+    foreignKey: "idPaciente"
 });
 
 export default Paciente;
