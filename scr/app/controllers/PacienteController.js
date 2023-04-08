@@ -7,7 +7,7 @@ function findAll (req, res) {
 async function findPaciente (req, res) {
     return await Paciente.findOne({
         where: {
-            nome: req.body.nome
+            id: req.params.id
         }
     });
 }

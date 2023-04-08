@@ -1,6 +1,6 @@
 import express from "express"
 
-import { findAll, findPaciente, addPaciente, updatePaciente, deletePaciente } from "../app/controllers/PacienteController.js";
+import { findAll, findPaciente, addPaciente, updatePaciente, deletePaciente, findPacienteByPk } from "../app/controllers/PacienteController.js";
 
 const routes = express.Router();
 
@@ -10,8 +10,8 @@ routes.get("/", (req, res, next) => {
 
 routes.get("/lista", findAll);
 
-routes.get("/lista/:id", (req, res, next) => {
-    const paciente = findPaciente(req, res);
+routes.get("/lista/:id", async (req, res, next) => {
+    const paciente = await findPaciente(req, res);
     res.status(200).json(paciente);
 });
 

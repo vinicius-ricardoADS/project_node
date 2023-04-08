@@ -10,8 +10,8 @@ router.get("/", (req, res, next) => {
 
 router.get("/lista", findAll);
 
-router.get("/lista/:id", (req, res, next) => {
-    const consulta = findConsulta(req, res);
+router.get("/lista/:id", async (req, res, next) => {
+    const consulta = await findConsulta(req, res);
     res.status(200).json(consulta);
 });
 

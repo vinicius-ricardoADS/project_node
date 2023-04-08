@@ -30,7 +30,7 @@ router.post("/", async (req, res, next) => {
         if (admin != null) {
             const privateKey = fs.readFileSync(path.resolve(__dirname, "../app/keys_jwt/private.key"), "utf-8");
             
-            token = jwt.sign({username: admin.name, id: admin.id}, privateKey, {
+            token = jwt.sign({username: admin.nome, id: admin.id}, privateKey, {
                 expiresIn: 300,
                 algorithm: "RS256"
             })

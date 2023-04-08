@@ -11,7 +11,7 @@ function findAll (req, res) {
 async function findConsulta (req, res) {
     return await Consulta.findOne({
         where: {
-            id: req.body.id
+            id: req.params.id
         }
     })
 }
