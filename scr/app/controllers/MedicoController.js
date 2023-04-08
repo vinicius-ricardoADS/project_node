@@ -1,5 +1,7 @@
 import Medico from "../modules/Medico.js";
 
+import Consulta from "../modules/Consulta.js";
+
 function findAll (req, res) {
     Medico.findAll().then((result) => res.json(result));
 }
@@ -46,13 +48,27 @@ async function updateMedico (req, res) {
 }
 
 async function deleteMedico (req, res) {
-    await Medico.destroy({
+
+    const consulta = await Consulta.findOne({
         where: {
-            id: req.params.id,
-        },
+            idMedico: req.params.id
+        }
     });
 
-    Medico.findAll().then((result) => res.json(result));
+    if (consulta == null) {
+        await Medico.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+    
+        Medico.findAll().then((result) => res.json(result));
+    } else {
+        res.json({
+            mensagem: "Médico atualmente tem uma consulta marcada"
+        });
+    }
+    
 }
 
 export {findAll, findMedico, findMedicoByPk, addMedico, updateMedico, deleteMedico};
