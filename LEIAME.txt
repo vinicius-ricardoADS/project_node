@@ -17,3 +17,5 @@ sendo utilizadas na conexão com o banco, caso precise mudar algo em relação a
 A principal página é a rota "clinica/" que seria uma página de login do usuário para só assim ter acesso completo a qualquer funcionalidade
 disponível, caso seja a primeira vez utilizando o sistema na hora de tentar o login ele vai redirecionar direto para a rota de cadastrado
 que para cadastrar um usuário é necessário os seguintes campos: nome, usuário e senha.
+Caso necessite você pode rodar o comando `npm run testing` para verificar se a conexão com o banco foi bem sucedida.
+Há também um arquivo README.md que é um pouco mais detalhado se necessário.
