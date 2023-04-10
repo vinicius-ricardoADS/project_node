@@ -3,7 +3,8 @@ a funcionalidade de marcação de consulta de um respetivo paciente com um respe
 possível efetuar um CRUD completo das 3 entidades Doentes, Médicos e Consultas, existe ainda a entidade Administradores que representa
 o utilizador que terá acesso às funcionalidades disponibilizadas no sistema, efetuando o login para acessar o sistema e um logout se 
 precisar sair do próprio sistema, caso ainda não haja administrador cadastrado no sistema, você deverá cadastrar um para poder utilizar
-o sistema. Algumas regras de negócios: Não é possível deletar um paciente se ele atualmente tiver uma consulta agendada, o mesmo para o médico,
+o sistema, apenas os serviços de administradores ficam disponíveis sem um login, para verificar quais existem e realizar um cadastro se 
+desejado. Algumas regras de negócios: Não é possível deletar um paciente se ele atualmente tiver uma consulta agendada, o mesmo para o médico,
 não é possível realizar a exclusão do mesmo. Não é possível cadastrar uma consulta se o paciente ou o médico informado não constarem no 
 sistema, também não é possível cadastrar uma consulta se a data ou a hora informada sejam inválidas (Exemplo: Passar uma data que já passou, ou
 uma hora que já passou). Os relacionamentos presentes são apenas um, que no caso, é um relacionamento de Pacientes com Consultas onde, uma

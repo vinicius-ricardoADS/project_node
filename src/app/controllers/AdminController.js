@@ -1,11 +1,19 @@
 import Admin from "../modules/Administrador.js";
 
+function findAll (req, res) {
+    Admin.findAll().then((result) => res.json(result));
+}
+
 async function findAdmin (req, res) {
     return await Admin.findOne({
         where: {
             usuario: req.body.usuario
         }
     });
+}
+
+async function findAdminByPk (req, res) {
+    return await Admin.findByPk(req.params.id);
 }
 
 function addAdmin (req, res) {
@@ -16,4 +24,4 @@ function addAdmin (req, res) {
     }).then((result) => res.json(result))
 }
 
-export {findAdmin, addAdmin};
+export {findAdmin, addAdmin, findAll, findAdminByPk};
