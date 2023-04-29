@@ -52,7 +52,7 @@ If it works, the following message should appear:
 
 ## Application
 
-- For the backend to run, in a terminal you must use the command:
+- For the backend to run, at the root of the project in a terminal you must use the command:
     ```
         npm run dev
     ```
