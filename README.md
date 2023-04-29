@@ -52,5 +52,8 @@ If it works, the following message should appear:
 
 ## Application
 
-- For the application to run, you must use the command:
+- For the backend to run, in a terminal you must use the command:
  **`npm run dev`**
+- For the front-end to run, in a new terminal you must use the following commands:
+ **`cd front-end`**
+ **`npm start`**
