@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node back-end/src/app.js",
+    "dev": "nodemon --exec babel-node back-end/app.js",
     "testing": "nodemon --exec babel-node back-end/src/test/DB.js"
   },
   "author": "",
