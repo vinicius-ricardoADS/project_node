@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+.bg-gray {
+  background-color: rgb(219, 212, 212);
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border-radius: 1rem;
+}
+
+.form-signin {
+  margin: 5px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
