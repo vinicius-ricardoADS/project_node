@@ -65,7 +65,7 @@ function verificaToken(req, res, next) {
 
 router.use("/admin", routesAdmin);
 
-router.use("/pacientes", verificaToken, routesPaciente);
+router.use("/pacientes", routesPaciente);
 
 router.use("/medicos", verificaToken, routesMedico);
 

@@ -15,8 +15,12 @@ async function start () {
 
     app.use(express.urlencoded({extended: true}));
     app.use(express.json());
+    app.use((req, res, next) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+    });
 
-    app.use("/clinica", routesClinica);
+    app.use("/", routesClinica);
 
     try {
         app.use(routesClinica);

@@ -23,7 +23,7 @@ export default function Home () {
                         </Form.Group>
                     </div>
                     <div>
-                        <Button type='submit' className='btn btn-primary'>Submit</Button>
+                        <Button type='submit' className='btn btn-primary'>Sign in</Button>
                     </div>
                 </Form>
             </div>
