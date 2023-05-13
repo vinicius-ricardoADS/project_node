@@ -10,8 +10,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 25%);
   border-radius: 1rem;
+}
+
+.form-margin {
+  margin: 20px;
 }
 
 .form-signin {
