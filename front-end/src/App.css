@@ -4,6 +4,38 @@
 
 .bg-gray {
   background-color: rgb(219, 212, 212);
+  height: 38px;
+  width: 27px;
+}
+
+.bg-gray-form {
+  background-color: #bebebf;
+}
+
+.bg-gray-400 {
+  background-color: #bebebf;
+}
+
+.text-gray-50:hover {
+  color: #eaeaea;
+}
+
+.text-gray {
+  color: #28282d;
+}
+
+.h-10 {
+  height: 43px;
+}
+
+.h-5 {
+  margin: 11px;
+  height: 29px;
+  width: 30px
+}
+
+.rounded-full {
+  border-radius: 1.5rem;
 }
 
 .container {
@@ -14,7 +46,7 @@
   border-radius: 1rem;
 }
 
-.form-margin {
+.login-margin {
   margin: 20px;
 }
 

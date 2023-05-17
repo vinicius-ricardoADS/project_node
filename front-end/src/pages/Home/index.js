@@ -5,7 +5,7 @@ import '../../App';
 export default function Home () {
     return (
         <>
-            <div className='container bg-gray align-content-center'>
+            <div className='container bg-gray-form align-content-center'>
                 <Form method='post' className='form-signin form-margin text-center'>
                     <div>
                         <h4>Enter with data</h4>
