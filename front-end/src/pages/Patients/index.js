@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import { User } from 'lucide-react';
 import { Search } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { format } from 'date-fns';
 import '../../App';
 
 
@@ -68,7 +67,7 @@ export default function List () {
                                         <td>{patient.nome}</td>
                                         <td>{patient.cpf}</td>
                                         <td>{patient.sexo}</td>
-                                        <td>{format(new Date(patient.datanasc), 'yyyy-MM-dd')}</td>
+                                        <td>{patient.datanasc}</td>
                                         <td><Button value={patient.id} as='a' href='/create' variant="primary">Edit</Button>{' '}</td>
                                         <td><Button value={patient.id} as='a' href='/create' variant="danger">Remove</Button>{' '}</td>
                                     </tr>
