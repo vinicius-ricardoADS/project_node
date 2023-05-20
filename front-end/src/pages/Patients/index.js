@@ -1,7 +1,7 @@
 import '../../App'
-import RegisterPatient from '../../components/patients/RegisterPatient'
-import FindPatient from '../../components/patients/FindPatient'
-import PatientTable from '../../components/patients/PatientTable'
+import RegisterPatient from '../../components/Patients/RegisterPatient'
+import FindPatient from '../../components/Patients/FindPatient'
+import PatientTable from '../../components/Patients/PatientTable'
 
 export default function Patient() {
   return (
