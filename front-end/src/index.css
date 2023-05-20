@@ -17,9 +17,17 @@ code {
 }
 
 .bg-nav {
-  background-color: rgb(0, 0, 0);
+  background-color: #fff;
 }
 
 .bg-infos {
-  background-color: rgba(51, 197, 204, 0.988);
+  background-color: rgba(108, 175, 175, 0.988);
+}
+
+.a-hover {
+  color: rgb(29, 56, 145) !important;
+}
+
+.a-hover:hover {
+  color: #000 !important;
 }

@@ -60,7 +60,7 @@ async function deletePaciente (req, res) {
         }
     });
 
-    if (consulta == null) {
+    if (consulta === null) {
         await Paciente.destroy({
             where: {
                 id: req.params.id,

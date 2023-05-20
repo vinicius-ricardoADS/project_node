@@ -12,7 +12,7 @@ import path from "path";
 
 import { validarDadosAdmin } from "../app/middlewares/validarDados.js";
 
-import { findAdmin, addAdmin } from "../app/controllers/AdminController.js";
+import { findAdmin } from "../app/controllers/AdminController.js";
 
 import jwt from "jsonwebtoken";
 
