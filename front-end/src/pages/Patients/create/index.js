@@ -1,11 +1,11 @@
 import { Form, Container, Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import Gender from '../../../components/GenderRadio'
 import InputText from '../../../components/InputText'
-import { DateInput } from '../../../components/DateInput'
+import DateInput from '../../../components/DateInput'
 
 const schema = yup
   .object({
@@ -31,10 +31,15 @@ export default function FormCreate() {
     console.log(data)
   }
 
+  const onChange = (date) => {
+    handleDateChange(date)
+  }
+
   return (
     <Container className="bg-gray-form p-2 w-50">
       <Form onSubmit={handleSubmit(onSubmit)}>
         <InputText
+          controlId="formName"
           label="Nome"
           type="text"
           name="nome"
@@ -43,6 +48,7 @@ export default function FormCreate() {
         />
         <p>{errors.nome?.message}</p>
         <InputText
+          controlId="formCpf"
           label="Cpf"
           type="text"
           name="cpf"
@@ -53,8 +59,10 @@ export default function FormCreate() {
         <Gender name="sexo" register={register} />
         <p>{errors.sexo?.message}</p>
         <DateInput
+          controlId="formDate"
+          type="date"
           value={selectedDate}
-          onChange={handleDateChange}
+          onChange={onChange}
           name="datanasc"
           label="Data de Nascimento"
           register={register}

@@ -13,6 +13,7 @@ export default function Gender({ register, name }) {
               {...register(name)}
               type="radio"
               label="Man"
+              value="M"
               name={name}
               id="Man"
             />
@@ -22,6 +23,7 @@ export default function Gender({ register, name }) {
               {...register(name)}
               type="radio"
               label="Woman"
+              value="W"
               name={name}
               id="Woman"
             />
@@ -30,6 +32,7 @@ export default function Gender({ register, name }) {
             <Form.Check
               {...register(name)}
               type="radio"
+              value="O"
               label="Others"
               name={name}
               id="Others"

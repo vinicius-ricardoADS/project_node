@@ -6,9 +6,10 @@ export default function InputText({
   type,
   placeholder,
   register,
+  controlId,
 }) {
   return (
-    <Form.Group as={Row} className="mb-3" controlId="formHorizontalName">
+    <Form.Group as={Row} className="mb-3" controlId={controlId}>
       <Form.Label className="fw-bold" column sm={2}>
         {label}
       </Form.Label>
