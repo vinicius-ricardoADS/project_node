@@ -77,6 +77,7 @@ export default function FormCreate() {
           controlId="formName"
           label="Nome"
           type="text"
+          onChange={onChange}
           defaultValue={isEditing ? form.nome : ''}
           name="nome"
           placeholder="Thomas Silva"
@@ -88,12 +89,13 @@ export default function FormCreate() {
           label="Cpf"
           defaultValue={isEditing ? form.cpf : ''}
           type="text"
+          onChange={onChange}
           name="cpf"
           placeholder="123.456.789-0"
           register={register}
         />
         {errors.cpf && <Alert variant="danger">{errors.cpf.message}</Alert>}
-        <Gender name="sexo" register={register} />
+        <Gender onChange={onChange} name="sexo" register={register} />
         {errors.sexo && <Alert variant="danger">{errors.sexo.message}</Alert>}
         <DateInput
           controlId="formDate"

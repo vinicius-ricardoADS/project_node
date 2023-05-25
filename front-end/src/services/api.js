@@ -11,6 +11,16 @@ export const post = async (uri, data) => {
   })
 }
 
+export const postJwt = async (uri) => {
+  return fetch(`${baseUrl}${uri}`, {
+    method: 'post',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  })
+}
+
 export const get = async (uri) => {
   return fetch(`${baseUrl}${uri}`, {
     method: 'get',

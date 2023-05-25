@@ -1,29 +1,92 @@
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import { Form, Button, Alert } from 'react-bootstrap'
+import InputText from '../../components/InputText'
+import { useState } from 'react'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import * as api from '../../services/api'
+import { useNavigate } from 'react-router-dom'
 import '../../App'
 
+const schema = yup
+  .object({
+    usuario: yup.string().required(),
+    senha: yup.string().required(),
+  })
+  .required()
+
 export default function Home() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+  const [form, setForm] = useState({
+    usuario: '',
+    senha: '',
+  })
+  const navigate = useNavigate()
+
+  const onSubmit = async (data) => {
+    console.log(data)
+    const response = await api.post('/', data)
+    if (response.ok) {
+      const res = await response.json()
+      const token = res.token
+      console.log(token)
+
+      localStorage.setItem('token', token)
+      navigate('/patients')
+    } else {
+      console.log('Erro na autenticação')
+    }
+  }
+
+  const onChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    })
+  }
+
   return (
     <div className="container bg-gray-form align-content-center">
-      <Form method="post" className="form-signin form-margin text-center">
+      <Form
+        onSubmit={handleSubmit(onSubmit)}
+        className="form-signin form-margin text-center"
+      >
         <div>
           <h4>Enter with data</h4>
         </div>
         <div className="form-floating mb-3">
-          <Form.Group className="mb-3" controlId="formGroupUser">
-            <Form.Label>User address</Form.Label>
-            <Form.Control name="email" type="text" placeholder="Enter user" />
-          </Form.Group>
+          <InputText
+            controlId="formUser"
+            label="Usuário"
+            type="text"
+            onChange={onChange}
+            name="usuario"
+            placeholder="Enter user"
+            register={register}
+          />
+          {errors.usuario && (
+            <Alert variant="danger">{errors.usuario.message}</Alert>
+          )}
         </div>
         <div className="form-floating">
-          <Form.Group className="mb-3" controlId="formGroupPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-          </Form.Group>
+          <InputText
+            controlId="formPassword"
+            label="Password"
+            onChange={onChange}
+            type="password"
+            name="senha"
+            placeholder="Password"
+            register={register}
+          />
+          {errors.senha && (
+            <Alert variant="danger">{errors.senha.message}</Alert>
+          )}
         </div>
         <div>
           <Button type="submit" className="btn btn-primary">

@@ -6,6 +6,7 @@ export default function InputText({
   type,
   placeholder,
   defaultValue,
+  onChange,
   register,
   controlId,
 }) {
@@ -18,6 +19,7 @@ export default function InputText({
         <Form.Control
           {...register(name)}
           name={name}
+          onChange={onChange}
           defaultValue={defaultValue}
           type={type}
           placeholder={placeholder}

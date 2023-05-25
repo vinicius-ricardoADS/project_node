@@ -7,7 +7,8 @@ function findAll (req, res) {
 async function findAdmin (req, res) {
     return await Admin.findOne({
         where: {
-            usuario: req.body.usuario
+            usuario: req.body.usuario,
+            senha: req.body.senha,
         }
     });
 }

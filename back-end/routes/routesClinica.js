@@ -27,25 +27,35 @@ router.get("/", (req, res, next) => {
 })
 
 router.post("/", async (req, res, next) => {
-    if (validarDadosAdmin(req)) {
-        const admin = await findAdmin(req, res);
-        if (admin != null) {
-            const privateKey = fs.readFileSync(path.resolve(__dirname, "../app/keys_jwt/private.key"), "utf-8");
-            
-            token = jwt.sign({username: admin.nome, id: admin.id}, privateKey, {
-                expiresIn: 300,
-                algorithm: "RS256"
-            })
-
-            res.status(200).json({
-                auth: true,
-                token: token
-            });
+    if (token) {
+        res.status(200).json({auth: true, token: token})
+    } else if (req.body !== null) {
+        if (validarDadosAdmin(req)) {
+            const admin = await findAdmin(req, res);
+            if (admin != null) {
+                const privateKey = fs.readFileSync(path.resolve(__dirname, "../app/keys_jwt/private.key"), "utf-8");
+                
+                token = jwt.sign({username: admin.nome, id: admin.id}, privateKey, {
+                    expiresIn: 300,
+                    algorithm: "RS256"
+                })
+    
+                res.status(200).json({
+                    auth: true,
+                    token: token
+                });
+            } else {
+                res.redirect(303, "/admin");
+            }
         } else {
-            res.redirect(303, "/admin");
+            res.status(400).json({
+                mensagem: "Valores de campos nulos ou vazios",
+            });
         }
     } else {
-        res.status(400).send("Valores de campos nulos ou vazios");
+        res.status(400).json({
+            mensagem: "Token inválido",
+        });
     }
 })
 
@@ -59,8 +69,7 @@ function verificaToken(req, res, next) {
         if (err)
             res.status(401).json({auth: false, mensagem: "Token inválido"})
         next();
-    })
-        
+    }) 
 }
 
 router.use("/admin", routesAdmin);
