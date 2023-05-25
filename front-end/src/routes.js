@@ -20,6 +20,7 @@ const router = createBrowserRouter(
       <Route path="/appointments" element={<Appoitments />}></Route>
       <Route path="/admins" element={<Admin />}></Route>
       <Route path="/patients/create" element={<Create />}></Route>
+      <Route path="/patients/update/:id" element={<Create />}></Route>
     </Route>,
   ),
 )

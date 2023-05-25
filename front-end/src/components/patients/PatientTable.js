@@ -2,8 +2,11 @@ import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import { useState, useEffect } from 'react'
 import { get, remove } from '../../services/api'
+import { useNavigate } from 'react-router-dom'
+import { format } from 'date-fns'
 
 export default function PatientTable() {
+  const navigate = useNavigate()
   const [patients, setPatients] = useState([])
 
   useEffect(() => {
@@ -31,12 +34,12 @@ export default function PatientTable() {
               <td>{patient.nome}</td>
               <td>{patient.cpf}</td>
               <td>{patient.sexo}</td>
-              <td>{patient.datanasc}</td>
+              <td>{format(new Date(patient.datanasc), 'dd/MM/yyyy')}</td>
               <td>
                 <Button
-                  value={patient.id}
-                  as="a"
-                  href="/create"
+                  onClick={() => {
+                    navigate(`/patients/update/${patient.id}`)
+                  }}
                   variant="primary"
                 >
                   Edit

@@ -5,6 +5,7 @@ export default function InputText({
   name,
   type,
   placeholder,
+  defaultValue,
   register,
   controlId,
 }) {
@@ -17,6 +18,7 @@ export default function InputText({
         <Form.Control
           {...register(name)}
           name={name}
+          defaultValue={defaultValue}
           type={type}
           placeholder={placeholder}
         />
