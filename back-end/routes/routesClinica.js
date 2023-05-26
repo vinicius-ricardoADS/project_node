@@ -60,7 +60,7 @@ router.post("/", async (req, res, next) => {
 
 router.post('/invalidToken', (req, res, next) => {
     if (token) {
-        token = {invalid: 'invalid'}
+        token = null
         res.status(200).json({
             auth: false
         })

@@ -27,7 +27,6 @@ const Private = ({ Component }) => {
 }
 
 const Deslogar = ({ Component }) => {
-  console.log(logout())
   logout()
   const isAuthenticated = localStorage.getItem('token') !== null
   if (isAuthenticated) localStorage.removeItem('token')
