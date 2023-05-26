@@ -5,7 +5,9 @@ import { findAll, findMedico, addMedico, updateMedico, deleteMedico } from "../a
 const router = express.Router();
 
 router.get("/", (req, res, next) => {
-    res.status(200).send("Bem vindo aos Médicos");
+    res.status(200).json({
+        mensagem: "Bem vindo aos Médicos"
+    });
 })
 
 router.get("/lista", findAll);

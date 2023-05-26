@@ -1,4 +1,4 @@
-import { Form, Button, Alert } from 'react-bootstrap'
+import { Form, Button, Alert, Container } from 'react-bootstrap'
 import InputText from '../../components/InputText'
 import { useState } from 'react'
 import * as yup from 'yup'
@@ -52,7 +52,7 @@ export default function Home() {
   }
 
   return (
-    <div className="container bg-gray-form align-content-center">
+    <Container className="bg-gray-form p-2 w-50">
       <Form
         onSubmit={handleSubmit(onSubmit)}
         className="form-signin form-margin text-center"
@@ -94,6 +94,6 @@ export default function Home() {
           </Button>
         </div>
       </Form>
-    </div>
+    </Container>
   )
 }

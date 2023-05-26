@@ -10,6 +10,16 @@ import Doctor from './pages/Doctors'
 import Appoitments from './pages/Appointments'
 import Admin from './pages/Admins'
 import Create from './pages/Patients/create'
+import * as api from './services/api'
+
+const logout = async () => {
+  const response = await api.post('/invalidToken')
+  if (response.ok) {
+    return true
+  } else {
+    return false
+  }
+}
 
 const Private = ({ Component }) => {
   const isAuthenticated = localStorage.getItem('token') !== null
@@ -17,8 +27,10 @@ const Private = ({ Component }) => {
 }
 
 const Deslogar = ({ Component }) => {
+  console.log(logout())
+  logout()
   const isAuthenticated = localStorage.getItem('token') !== null
-  if (!isAuthenticated) localStorage.removeItem('token')
+  if (isAuthenticated) localStorage.removeItem('token')
   return <Component />
 }
 

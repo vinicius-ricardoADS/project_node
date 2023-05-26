@@ -36,7 +36,6 @@ router.post("/", async (req, res, next) => {
                 const privateKey = fs.readFileSync(path.resolve(__dirname, "../app/keys_jwt/private.key"), "utf-8");
                 
                 token = jwt.sign({username: admin.nome, id: admin.id}, privateKey, {
-                    expiresIn: 300,
                     algorithm: "RS256"
                 })
     
@@ -56,6 +55,15 @@ router.post("/", async (req, res, next) => {
         res.status(400).json({
             mensagem: "Token inválido",
         });
+    }
+})
+
+router.post('/invalidToken', (req, res, next) => {
+    if (token) {
+        token = {invalid: 'invalid'}
+        res.status(200).json({
+            auth: false
+        })
     }
 })
 
