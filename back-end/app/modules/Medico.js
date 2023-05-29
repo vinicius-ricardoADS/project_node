@@ -23,7 +23,7 @@ const Medico = database.define("medicos", {
         primaryKey: false
     },
     datanasc: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: true,
         primaryKey: false
     },

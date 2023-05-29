@@ -28,7 +28,7 @@ const Paciente = database.define("pacientes", {
         primaryKey: false
     },
     datanasc: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
         primaryKey: false
     }

@@ -16,6 +16,14 @@ async function findPaciente (req, res) {
     });
 }
 
+async function findPacienteByName (req, res) {
+    return await Paciente.findOne({
+        where: {
+            nome: req.body.nome
+        }
+    })
+}
+
 async function findPacienteByPk (req, res) {
     return await Paciente.findByPk(req.body.idPaciente);
 }
@@ -75,4 +83,4 @@ async function deletePaciente (req, res) {
     }
 }
 
-export {findAll, findPaciente, findPacienteByPk, addPaciente, updatePaciente, deletePaciente};
+export {findAll, findPaciente, findPacienteByPk, addPaciente, updatePaciente, deletePaciente, findPacienteByName};

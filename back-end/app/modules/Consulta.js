@@ -10,7 +10,7 @@ const Consulta = database.define("consultas", {
         primaryKey: true
     },
     data: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
         primaryKey: false
     },
