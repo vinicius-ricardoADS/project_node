@@ -21,11 +21,11 @@ import { Form, FormControl } from 'react-bootstrap'
 export default function DateInput({
   label,
   type,
-  value,
   onChange,
   name,
   register,
   controlId,
+  defaultValue,
 }) {
   return (
     <Form.Group className="mb-3" controlId={controlId}>
@@ -33,10 +33,10 @@ export default function DateInput({
       <FormControl
         {...register(name)}
         type={type}
-        selected={value ? new Date(value) : null}
         onChange={onChange}
         className="form-control"
         name={name}
+        defaultValue={defaultValue}
       />
     </Form.Group>
   )

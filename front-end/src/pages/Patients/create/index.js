@@ -30,6 +30,7 @@ export default function FormCreate() {
     nome: '',
     cpf: '',
     datanasc: '',
+    sexo: '',
   })
   const navigate = useNavigate()
   const { id } = useParams()
@@ -40,6 +41,10 @@ export default function FormCreate() {
     const fetchPatient = async () => {
       const response = await api.getPatient('/pacientes/lista', parseInt(id))
       const patient = await response.json()
+      const dateFormated = new Date(patient.datanasc)
+        .toISOString()
+        .split('T')[0]
+      patient.datanasc = dateFormated
       setForm(patient)
     }
 
@@ -70,6 +75,14 @@ export default function FormCreate() {
     })
   }
 
+  const handleChangeCrimeDate = (e) => {
+    setForm({
+      datanasc: e.target.value,
+    })
+  }
+
+  console.log(form)
+
   return (
     <Container className="bg-gray-form p-2 w-50">
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -95,13 +108,18 @@ export default function FormCreate() {
           register={register}
         />
         {errors.cpf && <Alert variant="danger">{errors.cpf.message}</Alert>}
-        <Gender onChange={onChange} name="sexo" register={register} />
+        <Gender
+          defaultValue={form.sexo}
+          onChange={onChange}
+          name="sexo"
+          register={register}
+        />
         {errors.sexo && <Alert variant="danger">{errors.sexo.message}</Alert>}
         <DateInput
           controlId="formDate"
           type="date"
           defaultValue={isEditing ? form.datanasc : ''}
-          onChange={onChange}
+          onChange={handleChangeCrimeDate}
           name="datanasc"
           label="Data de Nascimento"
           register={register}

@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button'
 import { useState, useEffect } from 'react'
 import { get, remove } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
-import { format } from 'date-fns'
 
 export default function PatientTable() {
   const navigate = useNavigate()
@@ -34,7 +33,7 @@ export default function PatientTable() {
               <td>{patient.nome}</td>
               <td>{patient.cpf}</td>
               <td>{patient.sexo}</td>
-              <td>{format(new Date(patient.datanasc), 'dd/MM/yyyy')}</td>
+              <td>{new Date(patient.datanasc).toISOString().split('T')[0]}</td>
               <td>
                 <Button
                   onClick={() => {
