@@ -7,27 +7,17 @@ export default function Gender({ register, name, defaultValue }) {
         Gender
       </Form.Label>
       <Col>
-        <Form.Select aria-label="Default select example">
-          <option></option>
+        <Form.Select aria-label="Default select example" {...register(name)}>
           <option
             selected={defaultValue === 'M' ? 'defaultValue' : ''}
-            {...register(name)}
             value="M"
           >
             Man
           </option>
-          <option
-            selected={defaultValue === 'F' ? 'selected' : ''}
-            {...register(name)}
-            value="F"
-          >
+          <option selected={defaultValue === 'F' ? 'selected' : ''} value="F">
             Woman
           </option>
-          <option
-            selected={defaultValue === 'O' ? 'selected' : ''}
-            {...register(name)}
-            value="O"
-          >
+          <option selected={defaultValue === 'O' ? 'selected' : ''} value="O">
             Others
           </option>
         </Form.Select>

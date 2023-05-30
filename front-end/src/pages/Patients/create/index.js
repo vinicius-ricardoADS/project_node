@@ -34,25 +34,25 @@ export default function FormCreate() {
   })
   const navigate = useNavigate()
   const { id } = useParams()
-  console.log(id)
   const isEditing = !!id
 
   useEffect(() => {
     const fetchPatient = async () => {
-      const response = await api.getPatient('/pacientes/lista', parseInt(id))
-      const patient = await response.json()
-      const dateFormated = new Date(patient.datanasc)
-        .toISOString()
-        .split('T')[0]
-      patient.datanasc = dateFormated
-      setForm(patient)
+      if (isEditing) {
+        const response = await api.getPatient('/pacientes/lista', parseInt(id))
+        const patient = await response.json()
+        const dateFormated = new Date(patient.datanasc)
+          .toISOString()
+          .split('T')[0]
+        patient.datanasc = dateFormated
+        setForm(patient)
+      }
     }
 
     fetchPatient()
-  }, [id])
+  }, [id, isEditing])
 
   const onSubmit = async (data) => {
-    console.log(data)
     if (isEditing) {
       await api.put('/pacientes/cadastro', data, parseInt(id))
     } else {
@@ -81,8 +81,6 @@ export default function FormCreate() {
     })
   }
 
-  console.log(form)
-
   return (
     <Container className="bg-gray-form p-2 w-50">
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -96,7 +94,11 @@ export default function FormCreate() {
           placeholder="Thomas Silva"
           register={register}
         />
-        {errors.nome && <Alert variant="danger">{errors.nome.message}</Alert>}
+        {isEditing
+          ? null
+          : errors.nome && (
+              <Alert variant="danger">{errors.nome.message}</Alert>
+            )}
         <InputText
           controlId="formCpf"
           label="Cpf"
@@ -107,14 +109,20 @@ export default function FormCreate() {
           placeholder="123.456.789-0"
           register={register}
         />
-        {errors.cpf && <Alert variant="danger">{errors.cpf.message}</Alert>}
+        {isEditing
+          ? null
+          : errors.cpf && <Alert variant="danger">{errors.cpf.message}</Alert>}
         <Gender
           defaultValue={form.sexo}
           onChange={onChange}
           name="sexo"
           register={register}
         />
-        {errors.sexo && <Alert variant="danger">{errors.sexo.message}</Alert>}
+        {isEditing
+          ? null
+          : errors.sexo && (
+              <Alert variant="danger">{errors.sexo.message}</Alert>
+            )}
         <DateInput
           controlId="formDate"
           type="date"
@@ -124,12 +132,20 @@ export default function FormCreate() {
           label="Data de Nascimento"
           register={register}
         />
-        {errors.datanasc && (
-          <Alert variant="danger">{errors.datanasc.message}</Alert>
+        {isEditing
+          ? null
+          : errors.datanasc && (
+              <Alert variant="danger">{errors.datanasc.message}</Alert>
+            )}
+        {isEditing ? (
+          <Button variant="primary" type="submit">
+            Edit
+          </Button>
+        ) : (
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
         )}
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
       </Form>
     </Container>
   )
