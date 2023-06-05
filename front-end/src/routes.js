@@ -10,6 +10,7 @@ import Doctor from './pages/Doctors'
 import Appoitments from './pages/Appointments'
 import Admin from './pages/Admins'
 import Create from './pages/Patients/create'
+import CreateDoctor from './pages/Doctors/create'
 import * as api from './services/api'
 
 const logout = async () => {
@@ -50,8 +51,16 @@ const router = createBrowserRouter(
         element={<Private Component={Create} />}
       ></Route>
       <Route
+        path="/doctors/create"
+        element={<Private Component={CreateDoctor} />}
+      ></Route>
+      <Route
         path="/patients/update/:id"
         element={<Private Component={Create} />}
+      ></Route>
+      <Route
+        path="/doctors/update/:id"
+        element={<Private Component={CreateDoctor} />}
       ></Route>
     </Route>,
   ),
