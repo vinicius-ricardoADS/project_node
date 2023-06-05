@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from 'react'
-import { Form, FormControl } from 'react-bootstrap'
+import { Form, FloatingLabel } from 'react-bootstrap'
 
 /* const DateInput = React.forwardRef(({ label, value, onChange, name }, ref) => {
   return (
@@ -28,9 +28,8 @@ export default function DateInput({
   defaultValue,
 }) {
   return (
-    <Form.Group className="mb-3" controlId={controlId}>
-      <Form.Label className="fw-bold">{label}</Form.Label>
-      <FormControl
+    <FloatingLabel label={label} controlId={controlId} sm={2}>
+      <Form.Control
         {...register(name)}
         type={type}
         onChange={onChange}
@@ -38,6 +37,6 @@ export default function DateInput({
         name={name}
         defaultValue={defaultValue}
       />
-    </Form.Group>
+    </FloatingLabel>
   )
 }

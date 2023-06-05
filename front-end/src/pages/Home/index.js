@@ -1,5 +1,5 @@
 import { Form, Button, Alert, Container } from 'react-bootstrap'
-import InputText from '../../components/InputText'
+import InputText from '../../components/Form/InputText'
 import { useState } from 'react'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
