@@ -30,12 +30,10 @@ export default function Home() {
   const navigate = useNavigate()
 
   const onSubmit = async (data) => {
-    console.log(data)
     const response = await api.post('/', data)
     if (response.ok) {
       const res = await response.json()
       const token = res.token
-      console.log(token)
 
       localStorage.setItem('token', token)
       navigate('/patients')

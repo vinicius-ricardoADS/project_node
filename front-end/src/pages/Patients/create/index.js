@@ -73,6 +73,8 @@ export default function FormCreate() {
       ...form,
       [e.target.name]: e.target.value,
     })
+
+    console.log(form)
   }
 
   const handleChangeCrimeDate = (e) => {
@@ -113,7 +115,7 @@ export default function FormCreate() {
           ? null
           : errors.cpf && <Alert variant="danger">{errors.cpf.message}</Alert>}
         <Gender
-          defaultValue={form.sexo}
+          defaultValue={isEditing ? form.sexo : ''}
           onChange={onChange}
           name="sexo"
           register={register}
