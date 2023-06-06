@@ -34,7 +34,7 @@ export default function RowTopPatient({
           defaultValue={isEditing ? form.cpf : ''}
           type="text"
           onChange={onChange}
-          name="crm"
+          name="cpf"
           placeholder="123.456.789-0"
           register={register}
         />

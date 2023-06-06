@@ -2,21 +2,12 @@ import { Form, Container, Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import React, { useState, useEffect } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import * as api from '../../../services/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import RowTopPatient from '../../../components/Form/FormRow/RowTopPatient'
 import RowBottomPatient from '../../../components/Form/FormRow/RowBottomPatient'
+import { schemaPatient } from '../../../components/Schema'
 import '../../../App.css'
-
-const schema = yup
-  .object({
-    nome: yup.string().required(),
-    cpf: yup.string().required(),
-    sexo: yup.string().required(),
-    datanasc: yup.string().required(),
-  })
-  .required()
 
 export default function FormCreate() {
   const {
@@ -24,7 +15,7 @@ export default function FormCreate() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaPatient),
   })
   const [form, setForm] = useState({
     nome: '',
@@ -73,10 +64,7 @@ export default function FormCreate() {
       ...form,
       [e.target.name]: e.target.value,
     })
-
-    console.log(form)
   }
-
   return (
     <Container className="bg-gray-form">
       <Form className="m-20" onSubmit={handleSubmit(onSubmit)}>

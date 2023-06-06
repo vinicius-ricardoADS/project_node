@@ -2,23 +2,13 @@ import { Form, Container, Button, Alert } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import React, { useState, useEffect } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import Gender from '../../../components/Form/GenderRadio'
 import * as api from '../../../services/api'
 import { useNavigate, useParams } from 'react-router-dom'
 import '../../../App.css'
 import RowTop from '../../../components/Form/RowTop'
 import RowBottom from '../../../components/Form/RowBottom'
-
-const schema = yup
-  .object({
-    nome: yup.string().required(),
-    crm: yup.string().required(),
-    sexo: yup.string().required(),
-    datanasc: yup.string().required(),
-    salario: yup.number().required(),
-  })
-  .required()
+import { schemaDoctor } from '../../../components/Schema'
 
 export default function FormCreateDoctor() {
   const {
@@ -26,7 +16,7 @@ export default function FormCreateDoctor() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schemaDoctor),
   })
   const [form, setForm] = useState({
     nome: '',

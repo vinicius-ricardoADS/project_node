@@ -7,7 +7,6 @@ export default function Gender({ register, name, defaultValue, onChange }) {
         aria-label="Floating label select example"
         {...register(name)}
       >
-        <option>Open this select menu</option>
         <option
           selected={defaultValue === 'M' ? 'defaultValue' : ''}
           onChange={onChange}
