@@ -2,7 +2,7 @@ import { Form, FloatingLabel } from 'react-bootstrap'
 
 export default function Gender({ register, name, defaultValue, onChange }) {
   return (
-    <FloatingLabel controlId="floatingSelect" label="Works with selects">
+    <FloatingLabel controlId="floatingSelect" label="Genders">
       <Form.Select
         aria-label="Floating label select example"
         {...register(name)}
