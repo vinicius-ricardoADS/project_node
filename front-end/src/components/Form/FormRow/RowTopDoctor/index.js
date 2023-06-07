@@ -1,7 +1,7 @@
 import { Row, Col, Alert } from 'react-bootstrap'
-import InputText from '../InputText'
+import InputText from '../../InputText'
 
-export default function RowTop({
+export default function RowTopDoctor({
   isEditing,
   onChange,
   form,

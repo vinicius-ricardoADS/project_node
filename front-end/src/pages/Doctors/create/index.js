@@ -5,9 +5,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import Gender from '../../../components/Form/GenderRadio'
 import * as api from '../../../services/api'
 import { useNavigate, useParams } from 'react-router-dom'
+import RowTopDoctor from '../../../components/Form/FormRow/RowTopDoctor'
+import RowBottomDoctor from '../../../components/Form/FormRow/RowBottomDoctor'
 import '../../../App.css'
-import RowTop from '../../../components/Form/RowTop'
-import RowBottom from '../../../components/Form/RowBottom'
 import { schemaDoctor } from '../../../components/Schema'
 
 export default function FormCreateDoctor() {
@@ -77,7 +77,7 @@ export default function FormCreateDoctor() {
           <h4>Doctor</h4>
         </div>
         <div className="m-14">
-          <RowTop
+          <RowTopDoctor
             isEditing={isEditing}
             onChange={onChange}
             form={form}
@@ -99,7 +99,7 @@ export default function FormCreateDoctor() {
               )}
         </div>
         <div className="m-14">
-          <RowBottom
+          <RowBottomDoctor
             isEditing={isEditing}
             onChange={onChange}
             form={form}

@@ -1,8 +1,8 @@
 import { Row, Col, Alert } from 'react-bootstrap'
-import DateInput from '../DateInput'
-import InputText from '../InputText'
+import DateInput from '../../DateInput'
+import InputText from '../../InputText'
 
-export default function RowBottom({
+export default function RowBottomDoctor({
   isEditing,
   onChange,
   form,
