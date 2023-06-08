@@ -33,7 +33,9 @@ function validarDataConsulta (req) {
     var data = req.body.data + " " + req.body.hora;
     var dataConsulta = new Date(data);
 
-    if (dataConsulta.getTime() >= dataAtual.getTime() && dataConsulta.getHours() >= dataAtual.getHours() 
+    if (dataConsulta.getTime() > dataAtual.getTime()) return true;
+
+    if (dataConsulta.getTime() == dataAtual.getTime() && dataConsulta.getHours() >= dataAtual.getHours() 
     && dataConsulta.getMinutes() >= dataAtual.getMinutes())
         return true;
     return false;
