@@ -16,12 +16,12 @@ function findAll (req, res) {
           {
             model: Medico,
             as: 'medico',
-            attributes: ['nome'], // Substitua 'nome' pelo atributo correto na tabela "Medico" que contém o nome do médico
+            attributes: ['nome'],
           },
           {
             model: Paciente,
             as: 'paciente',
-            attributes: ['nome'], // Substitua 'nome' pelo atributo correto na tabela "Paciente" que contém o nome do paciente
+            attributes: ['nome'],
           },
         ],
       })
