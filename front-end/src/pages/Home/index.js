@@ -50,10 +50,10 @@ export default function Home() {
   }
 
   return (
-    <Container className="bg-gray-form p-2 w-50">
+    <Container className="bg-gray-form w-50">
       <Form
         onSubmit={handleSubmit(onSubmit)}
-        className="form-signin form-margin text-center"
+        className="form-signin m-20 text-center"
       >
         <div>
           <h4>Enter with data</h4>
@@ -86,11 +86,9 @@ export default function Home() {
             <Alert variant="danger">{errors.senha.message}</Alert>
           )}
         </div>
-        <div>
-          <Button type="submit" className="btn btn-primary">
-            Sign in
-          </Button>
-        </div>
+        <Button className="m-2" variant="primary" type="submit">
+          Sign in
+        </Button>
       </Form>
     </Container>
   )
