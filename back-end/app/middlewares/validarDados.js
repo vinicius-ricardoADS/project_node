@@ -29,16 +29,20 @@ function validarDadosConsulta (req) {
 }
 
 function validarDataConsulta (req) {
+    var dataConsulta = new Date(req.body.data + " " + req.body.hora);
     var dataAtual = new Date();
-    var data = req.body.data + " " + req.body.hora;
-    var dataConsulta = new Date(data);
 
-    if (dataConsulta.getTime() > dataAtual.getTime()) return true;
+    if (dataConsulta > dataAtual) return true;
 
-    if (dataConsulta.getTime() == dataAtual.getTime() && dataConsulta.getHours() >= dataAtual.getHours() 
-    && dataConsulta.getMinutes() >= dataAtual.getMinutes())
-        return true;
+    var isSameDate = dataConsulta.toDateString() === dataAtual.toDateString();
+
+    if (isSameDate) {
+        var isLaterTime = dataConsulta.getHours() > dataAtual.getHours() || (dataConsulta.getHours() === dataAtual.getHours() && dataConsulta.getMinutes() > dataAtual.getMinutes());
+        if (isLaterTime) return true;
+    }
+
     return false;
+
 }
 
 export { validarDadosAdmin, validarDadosPaciente, validarDadosMedico, validarDadosConsulta, validarDataConsulta };
