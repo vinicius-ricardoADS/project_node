@@ -1,4 +1,4 @@
-import { Stethoscope } from 'lucide-react'
+import { HeartPulse } from 'lucide-react'
 
 export default function RegisterAppointment() {
   return (
@@ -9,7 +9,7 @@ export default function RegisterAppointment() {
           className="text-gray text-decoration-none text-gray-50 flex-shrink-0 d-flex align-items-center justify-content-center me-3 items-center gap-3 text-left"
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400">
-            <Stethoscope className="h-5 w-5 text-gray" />
+            <HeartPulse className="h-5 w-5 text-gray" />
           </div>
           <p className="max-w-[140px] text-sm leading-snug mb-0 ms-3">
             <span className="underline">Cadastrar Consulta</span>
