@@ -16,7 +16,7 @@ export default function SelectDoctor({
       .then((res) => setDoctors(res))
   }, [])
   return (
-    <FloatingLabel controlId="floatingSelect" label="Doctors">
+    <FloatingLabel controlId="selectDoctors" label="Doctors">
       <Form.Select
         aria-label="Floating label select example"
         {...register(name)}

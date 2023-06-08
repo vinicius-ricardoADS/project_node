@@ -24,7 +24,9 @@ export default function RowTopAppointment({
         />
         {isEditing
           ? null
-          : errors.cpf && <Alert variant="danger">{errors.data.message}</Alert>}
+          : errors.data && (
+              <Alert variant="danger">{errors.data.message}</Alert>
+            )}
       </Col>
       <Col md>
         <InputText
@@ -39,7 +41,9 @@ export default function RowTopAppointment({
         />
         {isEditing
           ? null
-          : errors.cpf && <Alert variant="danger">{errors.hora.message}</Alert>}
+          : errors.hora && (
+              <Alert variant="danger">{errors.hora.message}</Alert>
+            )}
       </Col>
     </Row>
   )

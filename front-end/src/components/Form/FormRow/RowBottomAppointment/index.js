@@ -21,7 +21,7 @@ export default function RowBottomAppointment({
         />
         {isEditing
           ? null
-          : errors.cpf && (
+          : errors.idPaciente && (
               <Alert variant="danger">{errors.idPaciente.message}</Alert>
             )}
       </Col>
@@ -29,12 +29,12 @@ export default function RowBottomAppointment({
         <SelectDoctor
           register={register}
           name="idMedico"
-          defaultValue={isEditing ? form.idPaciente : ''}
+          defaultValue={isEditing ? form.idMedico : ''}
           onChange={onChange}
         />
         {isEditing
           ? null
-          : errors.cpf && (
+          : errors.idMedico && (
               <Alert variant="danger">{errors.idMedico.message}</Alert>
             )}
       </Col>
