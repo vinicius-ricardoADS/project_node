@@ -18,3 +18,12 @@ export const schemaPatient = yup
     datanasc: yup.string().required(),
   })
   .required()
+
+export const schemaAppointment = yup
+  .object({
+    data: yup.string().required(),
+    hora: yup.string().required(),
+    idPaciente: yup.number().required(),
+    idMedico: yup.number().required(),
+  })
+  .required()
