@@ -1,0 +1,18 @@
+- Informações essenciais para execução do programa -
+
+    - Para instalar todas as bibliotecas sendo utilizadas neste projeto, basta rodar:
+        `npm i` no diretório raiz.
+    - Ainda sobre a execução do projeto, é essencial seguir as diretrizes sobre a criação do banco em mysql disponíveis pelo README.md presente
+    no repositório principal, ou no arquivo LEIAME.txt enviado na primeira parte do trabalho do back-end.
+
+    - *Observações sobre mudanças no sistem* -
+        - Antes era possível ter o cadastro de outro administrador para utilizar o sistema, porém pensando um pouco melhor sobre o ambiente de uti
+        lização do projeto, seria melhor manter um acesso único para todos que irão utiliza-lo. E também no back-end antes havia uma expiração do
+        token jwt, que também sofreu uma mudança, no caso, foi retirado o tempo de 5 minutos de expiração para não ter a necessidade de realizar
+        um login a cada 5 minutos para utilizar o sistema.
+
+    - *Acesso para o sistema* -
+        - usuário: user
+        - senha: user
+
+- Link para o repositório original: https://github.com/vinicius-ricardoADS/project_node
