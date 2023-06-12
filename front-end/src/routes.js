@@ -28,10 +28,11 @@ const Private = ({ Component }) => {
 }
 
 const Logout = ({ Component }) => {
-  logout()
   const isAuthenticated = localStorage.getItem('token') !== null
-  if (isAuthenticated) localStorage.removeItem('token')
-  return <Component />
+  if (logout()) {
+    if (isAuthenticated) localStorage.removeItem('token')
+    return <Component />
+  }
 }
 
 const router = createBrowserRouter(
