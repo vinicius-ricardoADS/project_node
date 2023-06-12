@@ -28,7 +28,7 @@ const Private = ({ Component }) => {
   return isAuthenticated ? <Component /> : <Home />
 }
 
-const Deslogar = ({ Component }) => {
+const Logout = ({ Component }) => {
   logout()
   const isAuthenticated = localStorage.getItem('token') !== null
   if (isAuthenticated) localStorage.removeItem('token')
@@ -39,7 +39,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<Home />}></Route>
-      <Route path="/exit" element={<Deslogar Component={Home} />}></Route>
+      <Route path="/exit" element={<Logout Component={Home} />}></Route>
       <Route path="/patients" element={<Private Component={Patient} />}></Route>
       <Route path="/doctors" element={<Private Component={Doctor} />}></Route>
       <Route
