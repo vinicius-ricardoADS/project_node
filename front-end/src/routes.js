@@ -8,7 +8,6 @@ import Home from './pages/Home'
 import Patient from './pages/Patients'
 import Doctor from './pages/Doctors'
 import Appoitments from './pages/Appointments'
-import Admin from './pages/Admins'
 import Create from './pages/Patients/create'
 import CreateDoctor from './pages/Doctors/create'
 import CreateAppointment from './pages/Appointments/create'
@@ -46,7 +45,6 @@ const router = createBrowserRouter(
         path="/appointments"
         element={<Private Component={Appoitments} />}
       ></Route>
-      <Route path="/admins" element={<Private Component={Admin} />}></Route>
       <Route
         path="/patients/create"
         element={<Private Component={Create} />}
